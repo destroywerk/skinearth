@@ -1,0 +1,160 @@
+/* ─── Reset ─────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ─── Tokens ─────────────────────────────────────────── */
+:root {
+  --bg:            #f4e6e1;
+  --white:         #ffffff;
+  --text:          #1a1a1a;
+  --terracotta:    #7a2e19;
+  --hover-bg:      rgba(180, 85, 55, 0.18);
+  --rule-color:    rgba(26, 26, 26, 0.25);
+
+  --size-large:    clamp(32px, 5.5vw, 60px);
+  --size-body:     clamp(16px, 2.5vw, 30px);
+}
+
+/* ─── Base ───────────────────────────────────────────── */
+body {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: var(--size-body);
+  background-color: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.4;
+}
+
+.semibold   { font-weight: 600; }
+.terracotta { color: var(--terracotta); }
+
+/* ─── Links ──────────────────────────────────────────── */
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 5px;
+  text-decoration-thickness: 1.5px;
+  transition: background-color 0.12s ease;
+}
+
+a:hover {
+  background-color: var(--hover-bg);
+}
+
+/* ─── Header ─────────────────────────────────────────── */
+header {
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(20px, 3vw, 32px) clamp(24px, 4vw, 48px);
+  position: relative;
+}
+
+.site-title {
+  font-size: clamp(16px, 2.2vw, 30px);
+  font-weight: 400;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.logo {
+  position: absolute;
+  right: clamp(24px, 4vw, 48px);
+  top: 50%;
+  transform: translateY(-50%);
+  width: clamp(56px, 7vw, 88px);
+  height: auto;
+}
+
+/* ─── Main ───────────────────────────────────────────── */
+main {
+  padding: clamp(36px, 5vw, 56px) clamp(24px, 5vw, 56px) clamp(60px, 8vw, 96px);
+  max-width: 1100px;
+}
+
+/* ─── Date row ───────────────────────────────────────── */
+.date-row {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 28px;
+  margin-bottom: clamp(24px, 3vw, 36px);
+}
+
+.date-primary {
+  font-size: var(--size-large);
+  line-height: 1.1;
+}
+
+.date-late {
+  font-size: var(--size-body);
+  color: var(--terracotta);
+  line-height: 1.1;
+}
+
+/* ─── Section rule ───────────────────────────────────── */
+.section-rule {
+  border: none;
+  border-top: 1.5px dotted var(--rule-color);
+  margin-bottom: clamp(16px, 2vw, 24px);
+}
+
+/* ─── Venue ──────────────────────────────────────────── */
+.venue-link {
+  display: block;
+  font-size: var(--size-large);
+  line-height: 1.2;
+  color: var(--text);
+  margin-bottom: clamp(28px, 4vw, 48px);
+  width: fit-content;
+}
+
+/* ─── Description ────────────────────────────────────── */
+.description-block {
+  margin-bottom: clamp(28px, 4vw, 48px);
+}
+
+.curator-line {
+  font-size: var(--size-body);
+  margin-bottom: clamp(12px, 1.5vw, 20px);
+}
+
+.body-text {
+  font-size: var(--size-body);
+  line-height: 1.55;
+  max-width: 34em;
+}
+
+/* ─── Artists ────────────────────────────────────────── */
+.artists-block {
+  margin-top: clamp(28px, 4vw, 48px);
+}
+
+.featuring-label {
+  font-size: var(--size-body);
+  margin-bottom: clamp(12px, 1.5vw, 20px);
+}
+
+.artists-list {
+  font-size: var(--size-large);
+  line-height: 1.35;
+}
+
+/* ─── Responsive tweaks ──────────────────────────────── */
+@media (max-width: 600px) {
+  .date-row {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .logo {
+    width: 52px;
+  }
+}
