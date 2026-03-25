@@ -12,10 +12,9 @@
   --text:          #1a1a1a;
   --terracotta:    #7a2e19;
   --hover-bg:      rgba(180, 85, 55, 0.18);
-  --rule-color:    rgba(26, 26, 26, 0.25);
 
-  --size-large:    clamp(32px, 5.5vw, 60px);
-  --size-body:     clamp(16px, 2.5vw, 30px);
+  --size-large:    clamp(26px, 3.7vw, 40px);
+  --size-body:     clamp(14px, 1.85vw, 20px);
 }
 
 /* ─── Base ───────────────────────────────────────────── */
@@ -52,31 +51,33 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: clamp(20px, 3vw, 32px) clamp(24px, 4vw, 48px);
+  padding: clamp(20px, 3vw, 40px);
+  margin: clamp(16px, 3.5vw, 50px) clamp(16px, 3.5vw, 50px) 0;
+  min-height: clamp(80px, 10vw, 170px);
   position: relative;
 }
 
 .site-title {
-  font-size: clamp(16px, 2.2vw, 30px);
+  font-size: var(--size-large);
   font-weight: 400;
-  letter-spacing: 0.28em;
+  letter-spacing: normal;
   text-transform: uppercase;
   text-align: center;
 }
 
 .logo {
   position: absolute;
-  right: clamp(24px, 4vw, 48px);
-  top: 50%;
-  transform: translateY(-50%);
-  width: clamp(56px, 7vw, 88px);
+  right: clamp(20px, 3vw, 36px);
+  bottom: clamp(16px, 2vw, 24px);
+  width: clamp(48px, 6vw, 76px);
   height: auto;
 }
 
 /* ─── Main ───────────────────────────────────────────── */
 main {
-  padding: clamp(36px, 5vw, 56px) clamp(24px, 5vw, 56px) clamp(60px, 8vw, 96px);
-  max-width: 1100px;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: clamp(28px, 4vw, 56px) clamp(32px, 11vw, 150px) clamp(60px, 8vw, 96px);
 }
 
 /* ─── Date row ───────────────────────────────────────── */
@@ -84,8 +85,9 @@ main {
   display: flex;
   align-items: baseline;
   flex-wrap: wrap;
-  gap: 4px 28px;
-  margin-bottom: clamp(24px, 3vw, 36px);
+  gap: 4px 20px;
+  margin-bottom: clamp(20px, 3vw, 32px);
+  color: var(--terracotta);
 }
 
 .date-primary {
@@ -95,15 +97,7 @@ main {
 
 .date-late {
   font-size: var(--size-body);
-  color: var(--terracotta);
   line-height: 1.1;
-}
-
-/* ─── Section rule ───────────────────────────────────── */
-.section-rule {
-  border: none;
-  border-top: 1.5px dotted var(--rule-color);
-  margin-bottom: clamp(16px, 2vw, 24px);
 }
 
 /* ─── Venue ──────────────────────────────────────────── */
@@ -112,34 +106,33 @@ main {
   font-size: var(--size-large);
   line-height: 1.2;
   color: var(--text);
-  margin-bottom: clamp(28px, 4vw, 48px);
+  margin-bottom: clamp(20px, 3vw, 40px);
   width: fit-content;
 }
 
 /* ─── Description ────────────────────────────────────── */
 .description-block {
-  margin-bottom: clamp(28px, 4vw, 48px);
+  margin-bottom: clamp(20px, 3vw, 40px);
 }
 
 .curator-line {
   font-size: var(--size-body);
-  margin-bottom: clamp(12px, 1.5vw, 20px);
+  margin-bottom: clamp(10px, 1.5vw, 16px);
 }
 
 .body-text {
   font-size: var(--size-body);
   line-height: 1.55;
-  max-width: 34em;
 }
 
 /* ─── Artists ────────────────────────────────────────── */
 .artists-block {
-  margin-top: clamp(28px, 4vw, 48px);
+  margin-top: clamp(20px, 3vw, 40px);
 }
 
 .featuring-label {
   font-size: var(--size-body);
-  margin-bottom: clamp(12px, 1.5vw, 20px);
+  margin-bottom: clamp(10px, 1.5vw, 16px);
 }
 
 .artists-list {
@@ -148,13 +141,53 @@ main {
 }
 
 /* ─── Responsive tweaks ──────────────────────────────── */
-@media (max-width: 600px) {
+
+/* Tablet */
+@media (max-width: 768px) {
+  header {
+    margin: 24px 24px 0;
+    min-height: 100px;
+  }
+
+  main {
+    padding: 32px 40px 64px;
+  }
+
   .date-row {
-    flex-direction: column;
-    gap: 6px;
+    flex-wrap: wrap;
+    gap: 4px 16px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  :root {
+    --size-large: 24px;
+    --size-body:  14px;
+  }
+
+  header {
+    margin: 16px 16px 0;
+    padding: 20px 20px 20px;
+    min-height: 80px;
   }
 
   .logo {
-    width: 52px;
+    width: 40px;
+    right: 16px;
+    bottom: 14px;
+  }
+
+  main {
+    padding: 24px 20px 56px;
+  }
+
+  .date-row {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .venue-link {
+    width: 100%;
   }
 }
