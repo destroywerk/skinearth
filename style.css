@@ -132,13 +132,23 @@ main {
 }
 
 /* ─── Venue ──────────────────────────────────────────── */
+.venue-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: clamp(20px, 3vw, 40px);
+}
+
 .venue-link {
   display: block;
   font-size: var(--size-large);
   line-height: 1.2;
   color: var(--text);
-  margin-bottom: clamp(20px, 3vw, 40px);
-  width: fit-content;
+  flex: 1;
+}
+
+.logo-mobile {
+  display: none;
 }
 
 /* ─── Description ────────────────────────────────────── */
@@ -309,6 +319,19 @@ main.gallery-main {
 
   .venue-link {
     width: 100%;
+  }
+
+  .logo {
+    display: none;
+  }
+
+  .logo-mobile {
+    display: block;
+    height: 70px;
+    width: auto;
+    flex-shrink: 0;
+    margin-left: 12px;
+    align-self: center;
   }
 
   .venue-link .semibold {
