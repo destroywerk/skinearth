@@ -284,7 +284,7 @@ main.gallery-main {
 @media (max-width: 480px) {
   :root {
     --size-large: 24px;
-    --size-body:  11px;
+    --size-body:  14px;
   }
 
   header {
