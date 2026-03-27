@@ -331,11 +331,13 @@ main.gallery-main {
     width: auto;
     flex-shrink: 0;
     margin-left: 12px;
+    margin-top: -20px;
     align-self: center;
   }
 
   .venue-link .semibold {
     display: block;
+    line-height: 1;
   }
 
   .venue-address {
