@@ -106,7 +106,7 @@ header {
 
 /* ─── Main ───────────────────────────────────────────── */
 main {
-  max-width: 980px;
+  max-width: 1040px;
   margin: 0 auto;
   padding: clamp(28px, 4vw, 56px) clamp(32px, 11vw, 150px) clamp(60px, 8vw, 96px);
 }
