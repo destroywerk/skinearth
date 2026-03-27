@@ -14,7 +14,7 @@
   --hover-bg:      rgba(180, 85, 55, 0.18);
 
   --size-large:    clamp(26px, 3.7vw, 40px);
-  --size-body:     clamp(14px, 1.85vw, 20px);
+  --size-body:     clamp(9px, 1.5vw, 16px);
 }
 
 /* ─── Base ───────────────────────────────────────────── */
@@ -106,7 +106,7 @@ header {
 
 /* ─── Main ───────────────────────────────────────────── */
 main {
-  max-width: 1040px;
+  max-width: 1020px;
   margin: 0 auto;
   padding: clamp(28px, 4vw, 56px) clamp(32px, 11vw, 150px) clamp(60px, 8vw, 96px);
 }
@@ -274,7 +274,7 @@ main.gallery-main {
 @media (max-width: 480px) {
   :root {
     --size-large: 24px;
-    --size-body:  14px;
+    --size-body:  11px;
   }
 
   header {
