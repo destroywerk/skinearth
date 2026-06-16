@@ -127,43 +127,29 @@ a:hover { background-color: var(--hover-bg); }
 }
 
 /* ─── Tab change transition ──────────────────────────── */
-/* Where supported (Chromium / Safari), the View Transitions API
-   cross-fades the OLD page out and the NEW page in as one motion —
-   no blank flash, far softer than a plain fade-in. Both pages share
-   this stylesheet, which is what enables the cross-document effect. */
-@view-transition {
-  navigation: auto;
+/* Content fades + de-blurs in on load, and fades out on in-site
+   navigation (app.js adds .is-leaving before navigating). Pure
+   CSS+JS, so it works in every browser; external links (Instagram)
+   and modified clicks are left to navigate normally. */
+.page {
+  animation: page-fade-in 550ms cubic-bezier(0.33, 0, 0.2, 1) both;
+}
+body.is-leaving .page {
+  animation: page-fade-out 300ms cubic-bezier(0.4, 0, 1, 1) both;
 }
 
-::view-transition-old(root) {
-  animation: 600ms cubic-bezier(0.33, 0, 0.2, 1) both vt-out;
-}
-::view-transition-new(root) {
-  animation: 600ms cubic-bezier(0.33, 0, 0.2, 1) both vt-in;
-}
-
-@keyframes vt-out {
-  from { opacity: 1; filter: blur(0); }
-  to   { opacity: 0; filter: blur(3px); }
-}
-@keyframes vt-in {
-  from { opacity: 0; filter: blur(3px); }
-  to   { opacity: 1; filter: blur(0); }
-}
-
-/* Fallback: browsers without view transitions get a soft content fade-in */
 @keyframes page-fade-in {
-  from { opacity: 0; filter: blur(3px); }
+  from { opacity: 0; filter: blur(4px); }
   to   { opacity: 1; filter: blur(0); }
 }
-@supports not (view-transition-name: none) {
-  .page { animation: page-fade-in 600ms cubic-bezier(0.33, 0, 0.2, 1) both; }
+@keyframes page-fade-out {
+  from { opacity: 1; filter: blur(0); }
+  to   { opacity: 0; filter: blur(4px); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .page { animation: none; }
-  ::view-transition-old(root),
-  ::view-transition-new(root) { animation: none; }
+  .page,
+  body.is-leaving .page { animation: none; }
 }
 
 /* ─── Paper blocks ───────────────────────────────────── */
