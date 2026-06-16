@@ -195,7 +195,7 @@ body.is-leaving .page {
 .copy p:last-child { margin-bottom: 0; }
 
 .about-copy p { margin-bottom: 1.25em; }
-.about-copy .quote { font-style: italic; }
+.about-copy .quote { font-style: italic; font-weight: 400; }
 .about-copy .attrib {
   display: block;
   font-style: normal;
